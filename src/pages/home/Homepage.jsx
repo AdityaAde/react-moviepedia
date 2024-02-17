@@ -1,30 +1,46 @@
 import React from "react";
-import { HeaderComponent } from "./components/components";
+import { ListItem, Navbar } from "../../components/components";
 
 function Homepage() {
+  const listMovie = [
+    {
+      title: "Rick and Morty",
+      thumbnail:
+        "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p10376284_b_v13_aa.jpg",
+    },
+    {
+      title: "Wonka",
+      thumbnail:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwxIIdO1V_9YiTN4wJaWKBXmDw-S9sOJq-oe6QYHpTIH8J-KaNr-0HZxJFkOwz3JTaBV8&usqp=CAU",
+    },
+    {
+      title: "Rick and Morty",
+      thumbnail:
+        "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p10376284_b_v13_aa.jpg",
+    },
+    {
+      title: "Wonka",
+      thumbnail:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwxIIdO1V_9YiTN4wJaWKBXmDw-S9sOJq-oe6QYHpTIH8J-KaNr-0HZxJFkOwz3JTaBV8&usqp=CAU",
+    },
+    {
+      title: "Rick and Morty",
+      thumbnail:
+        "https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p10376284_b_v13_aa.jpg",
+    },
+    {
+      title: "Wonka",
+      thumbnail:
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwxIIdO1V_9YiTN4wJaWKBXmDw-S9sOJq-oe6QYHpTIH8J-KaNr-0HZxJFkOwz3JTaBV8&usqp=CAU",
+    },
+  ];
+
   return (
-    <div>
-      <HeaderComponent />
-
-      <section>
-        <div className="h-96 w-full bg-slate-500">
-          <div className="relative">
-            <img
-              src="https://cdn.oneesports.id/cdn-data/sites/2/2023/12/Anime_DemonSlayer_TotheHashiraTrainingmovie_OfficialPoster-1024x576-1.jpg"
-              alt="demon slayer"
-            />
-
-            <div class="absolute inset-0 flex items-center justify-center">
-              <button
-                className=" bg-red-600 px-2 py-2 text-white mx-2 rounded-md
-              "
-              >
-                Watch Now
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
+    <div className=" bg-black min-h-screen bg-opacity-90 text-white">
+      {/* Navbar Section */}
+      <Navbar />
+      {/* Trending Movies Section */}
+      <ListItem listMovie={listMovie} />
     </div>
   );
 }
