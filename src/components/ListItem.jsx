@@ -29,15 +29,15 @@ function ListItem({ listMovie }) {
             id="slider"
             className="flex w-full h-full overflow-x-scroll scroll whitespace-normal scroll-smooth space-x-4 scrollbar-hide"
           >
-            {listMovie.map((item) => (
+            {listMovie.slice(0, 12).map((item) => (
               <div>
                 <div className="flex flex-col">
                   <img
-                    src={`${item.thumbnail}`}
+                    src={`${process.env.REACT_APP_BASEIMGURL}${item.poster_path}`}
                     alt={`${item.title}`}
                     className="h-56 w-40 max-w-40 inline-block cursor-pointer hover:scale-105 ease-in-out duration-300 rounded-md"
                   />
-                  <p className="mx-auto mt-2 text-opacity-50 text-white">
+                  <p className="mx-auto mt-2 text-opacity-50 text-white line-clamp-2">
                     {item.title}
                   </p>
                 </div>
