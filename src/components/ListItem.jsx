@@ -12,17 +12,16 @@ function ListItem({ title, listMovie }) {
     slider.scrollLeft = slider.scrollLeft + 500;
   };
   return (
-    <section>
-      <div className="flex flex-col pt-24 px-4 py-4 space-y-6">
-        <div className="flex flex-row justify-between">
-          <h1 className="text-lg font-semibold border-b-2 pb-1 border-red-500">
-            {title}
-          </h1>
-          <p className="text-sm border rounded-full px-4 text-center flex items-center">
-            View All
-          </p>
-        </div>
-
+    <section className="mb-8">
+      <div className="flex flex-row justify-between">
+        <h1 className="text-lg font-semibold border-b-2 pb-1 border-red-500">
+          {title}
+        </h1>
+        <p className="text-sm border rounded-full px-4 text-center flex items-center">
+          View All
+        </p>
+      </div>
+      <div className=" pt-8">
         <div class="flex relative items-center">
           <MdChevronLeft
             size={40}
@@ -38,11 +37,11 @@ function ListItem({ title, listMovie }) {
                 <div className="flex flex-col">
                   <img
                     src={`${process.env.REACT_APP_BASEIMGURL}${item.poster_path}`}
-                    alt={`${item.title}`}
+                    alt={`${item.title ?? item.name}`}
                     className="h-56 w-40 max-w-40 inline-block cursor-pointer hover:scale-105 ease-in-out duration-300 rounded-md"
                   />
-                  <p className="mx-auto mt-2 text-opacity-50 text-white line-clamp-2 text-center">
-                    {item.title}
+                  <p className="mx-auto mt-2 text-opacity-50 text-white line-clamp-1 text-center">
+                    {item.title ?? item.name}
                   </p>
                 </div>
               </div>

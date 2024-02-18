@@ -1,9 +1,11 @@
 import axios from "axios";
 
-const movieTrendService = async () => {
+export const trendService = async ({ isMovies }) => {
   try {
     const response = await axios.get(
-      `${process.env.REACT_APP_BASEURL}/trending/movie/day`,
+      `${process.env.REACT_APP_BASEURL}/trending/${
+        isMovies ? "movie" : "tv"
+      }/day`,
       {
         params: {
           language: "en-US",
@@ -21,4 +23,23 @@ const movieTrendService = async () => {
   }
 };
 
-export default movieTrendService;
+export const topRatedService = async ({ isMovies }) => {
+  try {
+    const response = await axios.get(
+      `${process.env.REACT_APP_BASEURL}/${isMovies ? "movie" : "tv"}/top_rated`,
+      {
+        params: {
+          language: "en-US",
+        },
+        headers: {
+          accept: "application/json",
+          Authorization: `Bearer ${process.env.REACT_APP_APIKEY}`,
+        },
+      }
+    );
+    return response.data.results;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
