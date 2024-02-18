@@ -16,7 +16,7 @@ function Homepage() {
       {/* Navbar Section */}
       <Navbar />
       {/* Trending Movies Section */}
-      <ListItem listMovie={TrendMovies} />
+      <ListItem title="Trending Movies" listMovie={TrendMovies} />
     </div>
   );
 }
