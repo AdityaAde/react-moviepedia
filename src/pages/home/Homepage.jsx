@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { ListItem, Navbar } from "../../components/components";
 import {
-  trendService,
   topRatedService,
+  trendService,
 } from "../../store/services/movie_service";
 
 function Homepage() {
