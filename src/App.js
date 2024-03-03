@@ -1,16 +1,19 @@
-import "./App.css";
-import { Homepage } from "./pages/pages";
 import {
+  Route,
   BrowserRouter as Router,
-  Routes,
-  Route
+  Routes
 } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import { DetailPage, Homepage } from "./pages/pages";
 
 function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
-        <Route path="/" element={<Homepage></Homepage>}></Route>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/detail-movie" element={<DetailPage />} />
       </Routes>
     </Router>
   );

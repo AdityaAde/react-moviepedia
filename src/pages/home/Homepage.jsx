@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ListItem, Navbar } from "../../components/components";
+import { ListItem } from "../../components/components";
 import {
   topRatedService,
   trendService,
@@ -32,8 +32,6 @@ function Homepage() {
 
   return (
     <div className=" bg-black min-h-screen bg-opacity-90 text-white">
-      {/* Navbar Section */}
-      <Navbar />
       {/* Trending n Top Rating */}
       <div className="flex flex-col pt-24 px-8">
         <ListItem title="Trending Movies" listMovie={TrendMovie} />
