@@ -13,7 +13,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/detail-movie" element={<DetailPage />} />
+        <Route path="/detail-movie/:id/:ismovie" element={<DetailPage />} />
       </Routes>
     </Router>
   );

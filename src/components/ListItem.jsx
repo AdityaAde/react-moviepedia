@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
 
-function ListItem({ title, listMovie }) {
+function ListItem({ title, listMovie, isMovie }) {
   const [hoveredItem, setHoveredItem] = useState(null);
 
   const slideLeft = () => {
@@ -40,7 +40,7 @@ function ListItem({ title, listMovie }) {
             id="slider"
             className="flex w-full h-full overflow-x-scroll scroll whitespace-normal scroll-smooth space-x-4 scrollbar-hide">
             {listMovie.slice(0, 12).map((item, index) => (
-              <Link to="/detail-movie">
+              <Link to={`/detail-movie/${item.id}/${isMovie}`}>
                 <div className="relative" key={index}>
                   <div
                     className="flex flex-col"

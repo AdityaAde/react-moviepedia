@@ -34,10 +34,26 @@ function Homepage() {
     <div className=" bg-black min-h-screen bg-opacity-90 text-white">
       {/* Trending n Top Rating */}
       <div className="flex flex-col pt-24 px-8">
-        <ListItem title="Trending Movies" listMovie={TrendMovie} />
-        <ListItem title="Top Rated Movies" listMovie={TopRatedMovie} />
-        <ListItem title="Trending Series" listMovie={TrendSeries} />
-        <ListItem title="Top Rated Series" listMovie={TopRatedSeries} />
+        <ListItem
+          title="Trending Movies"
+          listMovie={TrendMovie}
+          isMovie={true}
+        />
+        <ListItem
+          title="Top Rated Movies"
+          listMovie={TopRatedMovie}
+          isMovie={true}
+        />
+        <ListItem
+          title="Trending Series"
+          listMovie={TrendSeries}
+          isMovie={false}
+        />
+        <ListItem
+          title="Top Rated Series"
+          listMovie={TopRatedSeries}
+          isMovie={false}
+        />
       </div>
     </div>
   );
