@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { creditsMovie } from "../../store/services/credits_service";
 import { detailMovie } from "../../store/services/movie_service";
 
 function DetailPage() {
   const { id, ismovie } = useParams();
-  const [DetailMovie, setDetailMovie] = useState();
   const [isLoading, setIsLoading] = useState();
+  const [DetailMovie, setDetailMovie] = useState();
+  const [TopCasts, setTopCasts] = useState([]);
 
   useEffect(() => {
     setIsLoading(true);
+
+    creditsMovie({ id: id, isMovies: ismovie }).then((value) => {
+      setTopCasts(value);
+    });
+
     detailMovie({ id: id, isMovies: ismovie })
       .then((value) => {
         setDetailMovie(value);
@@ -54,18 +61,19 @@ function DetailPage() {
                 <h1 className="max-w-xl">{DetailMovie.overview}</h1>
                 <h1 className="text-xl font-bold">Top Casts</h1>
                 <div className="flex space-x-4">
-                  <div className="flex flex-col">
-                    <div className="h-20 w-16 max-w-40 rounded-md bg-slate-400" />
-                    <p className="mx-auto mt-2 text-opacity-50 line-clamp-2 w-16">
-                      Aditya Ade
-                    </p>
-                  </div>
-                  <div className="flex flex-col">
-                    <div className="h-20 w-16 max-w-40 rounded-md bg-slate-400" />
-                    <p className="mx-auto mt-2 text-opacity-50 line-clamp-2 w-16">
-                      Maylida Dwi Chairunnisa
-                    </p>
-                  </div>
+                  {TopCasts.slice(0, 3).map((item, index) => (
+                    <div className="flex flex-col">
+                      <img
+                        src={`${process.env.REACT_APP_BASEIMGURL}${item.profile_path}`}
+                        alt="Profile"
+                        className="h-20 w-16 max-w-40 rounded-md"
+                      />
+
+                      <p className="mx-auto mt-2 text-opacity-50 line-clamp-2 w-16">
+                        {item.name}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
