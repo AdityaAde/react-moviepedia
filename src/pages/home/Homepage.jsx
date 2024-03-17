@@ -31,7 +31,7 @@ function Homepage() {
   }, []);
 
   return (
-    <div className=" bg-black min-h-screen bg-opacity-90 text-white">
+    <div className=" bg-black bg-opacity-90 min-h-screen  text-white">
       {/* Trending n Top Rating */}
       <div className="flex flex-col pt-24 px-8">
         <ListItem
